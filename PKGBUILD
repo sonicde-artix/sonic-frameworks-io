@@ -1,11 +1,12 @@
-# Maintainer: artist for Artix Linux
+# Maintainer: callmetango
+# Contributor: artist <artist@artixlinux.org>
 
 pkgname=sonic-frameworks-io
 pkgver=6.26.0
 pkgrel=1
 pkgdesc='Resource and network access abstraction'
 arch=(x86_64)
-url="https://github.com/Sonic-DE/$pkgname"
+url='https://github.com/Sonic-DE/sonic-frameworks-io'
 license=(LGPL-2.0-only LGPL-3.0-only)
 depends=(acl
          libstdc++
@@ -46,7 +47,8 @@ conflicts=(kio)
 provides=(kio)
 replaces=(kio)
 groups=(sonicde-frameworks)
-source=("$pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/$pkgver.tar.gz")
+source=("$pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/${pkgver}.tar.gz")
+sha256sums=('1f9a1fce613a7f7ee34480194269a0ea75ec4c4b098253781e4c451699031115')
 
 build() {
   cmake -B build -S $pkgname-$pkgver \
@@ -58,4 +60,3 @@ build() {
 package() {
   DESTDIR="$pkgdir" cmake --install build
 }
-sha256sums=('1f9a1fce613a7f7ee34480194269a0ea75ec4c4b098253781e4c451699031115')
