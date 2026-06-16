@@ -3,7 +3,7 @@
 
 pkgname=sonic-frameworks-io
 pkgver=6.27.0
-pkgrel=1
+pkgrel=2
 pkgdesc='Resource and network access abstraction'
 arch=(x86_64)
 url='https://github.com/Sonic-DE/sonic-frameworks-io'
@@ -52,6 +52,7 @@ sha256sums=('0949ce55ffdedafaaaaf75485966f594b84750be1879f7d63a114b5bba129196')
 
 build() {
   cmake -B build -S $pkgname-$pkgver \
+    -DCMAKE_INSTALL_LIBDIR=lib \
     -DCMAKE_INSTALL_LIBEXECDIR=lib \
     -DBUILD_TESTING=OFF
   cmake --build build
